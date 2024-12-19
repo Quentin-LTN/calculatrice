@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .calculator-container {
+            border-radius: 8px;
+            width: 350px;
+            padding: 30px;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            box-sizing: border-box;
+        }
+
+        .result-container {
+            background-color: rgb(238, 243, 96);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculate-btn:hover {
+            background-color: rgb(238, 243, 96);
+        }
+
+        @media (max-width: 480px) {
+            .calculator-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>Ma Calculatrice</h2>
+        
+            <label for="1number">Premier Nombre</label>
+            <input type="text" id="1number"><br><br>
+            <label for="2number">Deuxième Nombre</label>
+            <input type="text" id="2number"><br><br>
+            <strong>Résultat :</strong> <span id="result">0</span><br><br>
+
+        <button class="calculate-btn" onclick="calculate()">Calculer</button>
+    </div>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('1number').value);
+            var num2 = parseFloat(document.getElementById('2number').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Veuillez entrer des nombres valides");
+                return;
+            }
+
+            var sum = num1 + num2;
+            document.getElementById('result').textContent = sum;
+        }
+    </script>
+</body>
+</html>
